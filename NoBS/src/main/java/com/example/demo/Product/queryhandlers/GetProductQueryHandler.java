@@ -1,4 +1,4 @@
-package com.example.demo.queryhandlers;
+package com.example.demo.Product.queryhandlers;
 
 import com.example.demo.Product.Model.Product;
 import com.example.demo.Product.ProductRepository;
