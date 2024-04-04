@@ -1,7 +1,10 @@
 package com.example.demo.Customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Table(name = "address")
@@ -21,6 +24,10 @@ public class Address {
     @Column(name = "state")
     private String state;
 
-    @Column(name = "customer_id")
-    private Integer customerId;
+    @ManyToMany(mappedBy = "addresses")
+    @JsonIgnore
+    private List<Customer> customers;
+
+    // This can cause infinite circular reference
+    // To avoid we can use DTO or JSON IGNORE
 }

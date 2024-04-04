@@ -49,10 +49,36 @@
 -- UPDATE address
 -- SET customer_id = (SELECT id FROM customer WHERE id = address.id);
 
+-- use nobs;
+-- INSERT INTO customer (first_name, last_name) VALUES ('Jane', 'Smith');
+
+-- INSERT INTO address (street, city, state, customer_id) VALUES
+-- ('789 Pine St', 'CityC', 'SC', 1),
+-- ('101 Elm St', 'CityD', 'SC', 2);
+
+-- use nobs;
+-- ALTER TABLE customer
+-- DROP FOREIGN KEY customer_ibfk_1;
+-- ALTER TABLE customer
+-- DROP COLUMN address_id;
+
+
+-- use nobs;
+-- CREATE TABLE customer_address (
+-- customer_id BIGINT,
+-- address_id BIGINT,
+-- PRIMARY KEY (customer_id, address_id),
+-- FOREIGN KEY (customer_id) REFERENCES customer (id),
+-- FOREIGN KEY (address_id) REFERENCES address(id)
+-- );
+
+-- use nobs;
+-- INSERT INTO customer_address (customer_id, address_id)
+-- SELECT customer_id, id as address_id
+-- FROM address;
+
 use nobs;
-INSERT INTO customer (first_name, last_name) VALUES ('Jane', 'Smith');
-
-INSERT INTO address (street, city, state, customer_id) VALUES
-('789 Pine St', 'CityC', 'SC', 1),
-('101 Elm St', 'CityD', 'SC', 2);
-
+ALTER TABLE address
+DROP FOREIGN KEY fk_customer;
+ALTER TABLE address
+DROP COLUMN customer_id;

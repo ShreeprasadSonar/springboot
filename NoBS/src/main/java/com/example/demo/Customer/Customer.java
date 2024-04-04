@@ -22,7 +22,11 @@ public class Customer {
     private String lastName;
 
     // (cascade = CascadeType.ALL) If we update a customer who also has an address attached it will also update the address
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id")
-    private List<Address> address;
+    @ManyToMany
+    @JoinTable(
+            name = "customer_address",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id")
+    )
+    private List<Address> addresses;
 }
