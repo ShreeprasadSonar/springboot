@@ -25,11 +25,7 @@ public class GetAllProductsQueryHandler implements Query<Void, List<ProductDTO>>
         constructor of ProductDTO. Finally, the result is collected into a list using the
         toList() terminal operation.
          */
-        List<ProductDTO> productDTOs = productRepository
-                .findAll()
-                .stream()
-                .map(ProductDTO::new)
-                .toList();
+        List<ProductDTO> productDTOs = productRepository.getAllProductDTOs();
         // Returns a ResponseEntity with HTTP status OK and the list of products retrieved from the repository.// Returns a ResponseEntity with HTTP status OK and the list of products retrieved from the repository.
         return ResponseEntity.ok(productDTOs);
     }

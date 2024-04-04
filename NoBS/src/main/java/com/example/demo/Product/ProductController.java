@@ -54,6 +54,11 @@ public class ProductController {
     }
      */
 
+    @GetMapping("/search/{maxPrice}")
+    public ResponseEntity<List<Product>> findProductByPrice(@PathVariable Double maxPrice){
+        return ResponseEntity.ok(productRepository.findProductsWithPriceLessThan(maxPrice));
+    }
+
     // Update Product to ProductDTO for GetMappings
     @GetMapping
     public ResponseEntity<List<ProductDTO>> getProducts(){
@@ -64,6 +69,17 @@ public class ProductController {
     public ResponseEntity<ProductDTO> getProduct(@PathVariable Integer id){
         return getProductQueryHandler.execute(id);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam(value="description") String description){
+        return ResponseEntity.ok(productRepository.findByDescriptionContaining(description));
+    }
+
+
+
+
+
+
 
     @PostMapping
     public ResponseEntity createProduct(@RequestBody Product product){
