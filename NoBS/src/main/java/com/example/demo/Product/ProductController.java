@@ -76,11 +76,6 @@ public class ProductController {
     }
 
 
-
-
-
-
-
     @PostMapping
     public ResponseEntity createProduct(@RequestBody Product product){
         return createProductCommandHandler.execute(product);
