@@ -91,3 +91,9 @@
 -- );
 
 -- describe cat_facts
+
+use nobs;
+CREATE TABLE orders (
+id BINARY(16) PRIMARY KEY,
+total DOUBLE NOT NULL
+);
