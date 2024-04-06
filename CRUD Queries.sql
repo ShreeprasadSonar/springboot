@@ -77,8 +77,17 @@
 -- SELECT customer_id, id as address_id
 -- FROM address;
 
-use nobs;
-ALTER TABLE address
-DROP FOREIGN KEY fk_customer;
-ALTER TABLE address
-DROP COLUMN customer_id;
+-- use nobs;
+-- ALTER TABLE address
+-- DROP FOREIGN KEY fk_customer;
+-- ALTER TABLE address
+-- DROP COLUMN customer_id;
+
+
+-- use nobs;
+-- CREATE TABLE `cat_facts`(
+-- `id` INT AUTO_INCREMENT PRIMARY KEY,
+-- `catFactJSON` JSON NOT NULL
+-- );
+
+-- describe cat_facts

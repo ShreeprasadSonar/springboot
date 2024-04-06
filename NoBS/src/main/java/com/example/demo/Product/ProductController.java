@@ -75,7 +75,6 @@ public class ProductController {
         return ResponseEntity.ok(productRepository.findByDescriptionContaining(description));
     }
 
-
     @PostMapping
     public ResponseEntity createProduct(@RequestBody Product product){
         return createProductCommandHandler.execute(product);
