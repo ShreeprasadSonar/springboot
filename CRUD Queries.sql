@@ -92,8 +92,12 @@
 
 -- describe cat_facts
 
-use nobs;
-CREATE TABLE orders (
-id BINARY(16) PRIMARY KEY,
-total DOUBLE NOT NULL
-);
+-- use nobs;
+-- CREATE TABLE orders (
+-- id BINARY(16) PRIMARY KEY,
+-- total DOUBLE NOT NULL
+-- );
+
+-- describe orders;
+
+SELECT BIN_TO_UUID(id) as id, total from orders;
